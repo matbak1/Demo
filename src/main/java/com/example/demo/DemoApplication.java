@@ -1,10 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.dto.CustomerDto;
-import com.example.demo.model.Address;
-import com.example.demo.model.Customer;
-import com.example.demo.model.Device;
-import com.example.demo.model.Offer;
 import com.example.demo.repository.DeviceRepository;
 import com.example.demo.repository.OfferRepository;
 import com.example.demo.service.CustomerService;
@@ -35,6 +30,7 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... arg0) throws Exception {
+        System.out.println();
 
     }
 

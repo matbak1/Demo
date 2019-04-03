@@ -30,7 +30,7 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... arg0) throws Exception {
-        System.out.println("test2");
+        SSystem.out.println("test2");
 
     }
 

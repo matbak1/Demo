@@ -27,7 +27,10 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public void createAddress(AddressDto addressDto) {
-        addressRepository.save(convertToEntity(addressDto));
+        Optional<Address> address = addressRepository.findById(addressDto.getId());
+        if (!address.isPresent()) {
+            addressRepository.save(convertToEntity(addressDto));
+        }
     }
 
     @Override

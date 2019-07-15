@@ -46,6 +46,7 @@ create table `offer`(
     primary key (`id`)
 );
 
+insert into offer(offer_name, price, discount) values ('oferta1', 23,44.1);
 
 
 insert into address(city, post_code) values ('Warszawa', '22-293');

@@ -18,10 +18,15 @@ public class CustomerAspect {
     CustomerService customerService;
 
     @Pointcut("execution(void create*(*))")
-    public void customerAdd() {
+    public void customerCreate() {
     }
 
-    @Before("customerAdd()")
+    @Pointcut("execution(void createOffer(*))")
+    public void offerAdd(){
+
+    }
+
+    @Before("customerCreate()")
     public void beforeCustomerCreate(JoinPoint joinPoint) {
         int numberOfCustomers = customerService.getCustomerCount().intValue();
         Object[] objects = joinPoint.getArgs();
@@ -41,7 +46,7 @@ public class CustomerAspect {
 
     }
 
-    @After("customerAdd()")
+    @After("customerCreate()")
     public void afterCustomerCreate() {
         int numberOfCustomers = (int) customerService.getCustomerCount().intValue();
 

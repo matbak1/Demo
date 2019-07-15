@@ -27,7 +27,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public void createAddress(AddressDto addressDto) {
-        Optional<Address> address = addressRepository.findById(addressDto.getId());
+        Optional<Address> address = addressRepository.findByCity(addressDto.getCity());
         if (!address.isPresent()) {
             addressRepository.save(convertToEntity(addressDto));
         }
@@ -37,7 +37,7 @@ public class AddressServiceImpl implements AddressService {
     public AddressDto getAddress(Long id) {
         Optional<Address> address = addressRepository.findById(id);
 
-        if (!address.isPresent()){
+        if (!address.isPresent()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Not found address");
         }
         return convertToDto(address.get());
@@ -45,7 +45,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public List<AddressDto> getAddresses() {
-        List<Address> addressList =(List<Address>) addressRepository.findAll();
+        List<Address> addressList = (List<Address>) addressRepository.findAll();
         return addressList
                 .stream()
                 .map(this::convertToDto)

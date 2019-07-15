@@ -30,7 +30,9 @@ public class AddressServiceImpl implements AddressService {
         Optional<Address> address = addressRepository.findByCity(addressDto.getCity());
         if (!address.isPresent()) {
             addressRepository.save(convertToEntity(addressDto));
+            System.out.println("addres was saved");
         }
+
     }
 
     @Override

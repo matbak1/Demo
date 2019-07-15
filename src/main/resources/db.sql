@@ -48,3 +48,15 @@ create table `offer`(
 
 insert into offer(offer_name, price, discount) values ('oferta1', 23,44.1);
 
+
+insert into address(city, post_code) values ('Warszawa', '22-293');
+insert into address(city, post_code) values ('Lublin', '12-321');
+
+insert into customer(first_name, last_name, address_id)
+    values ('Jan', 'Kowalski', (select id from address where city = 'Warszawa'));
+
+
+insert into customer(first_name, last_name, address_id)
+    values ('Jan', 'Kowalski', ((select id from address where city = 'Lublin')));
+
+

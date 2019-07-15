@@ -40,7 +40,7 @@ drop table if exists offer;
 
 create table `offer`(
     id int not null auto_increment,
-    offer_name varchar2(100),
+    offer_name varchar2(200),
     price double not null,
     discount int,
     primary key (`id`)
